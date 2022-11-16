@@ -25,11 +25,19 @@ type LogeStackRoutesProps = {
 
 const Stack = createNativeStackNavigator<MainParamList>();
 
+const homeScreenOptions = {
+  title: 'Wheather',
+};
+
 export const MainNavigation = ({
   initialScreen = 'HomeScreen',
 }: LogeStackRoutesProps) => (
   <Stack.Navigator initialRouteName={initialScreen}>
-    <Stack.Screen name="HomeScreen" component={HomeScreen} />
+    <Stack.Screen
+      name="HomeScreen"
+      options={homeScreenOptions}
+      component={HomeScreen}
+    />
   </Stack.Navigator>
 );
 
