@@ -4,7 +4,7 @@ import { Image, Text, View } from 'react-native';
 
 import { icons } from '@assets/icons';
 import { Spacer } from '@components/Spacer';
-import { buildIconUrl } from 'src/screens/Home/mockWheatherData';
+import { buildIconUrl } from '@services/utils/weatherIcons';
 
 import { styles } from './LocationWeatherInformation.style';
 
