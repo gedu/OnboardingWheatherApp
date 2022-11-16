@@ -26,7 +26,7 @@ type LogeStackRoutesProps = {
 const Stack = createNativeStackNavigator<MainParamList>();
 
 const homeScreenOptions = {
-  title: 'Wheather',
+  title: 'Weather',
 };
 
 export const MainNavigation = ({
