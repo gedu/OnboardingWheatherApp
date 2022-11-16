@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Image, Text, View } from 'react-native';
 
-import { icons } from '../../../assets/icons';
-import { buildIconUrl } from '../../screens/Home/mockWheatherData';
-import { Spacer } from '../Spacer';
+import { icons } from '@assets/icons';
+import { Spacer } from '@components/Spacer';
+import { buildIconUrl } from 'src/screens/Home/mockWheatherData';
 
 import { styles } from './LocationWeatherInformation.style';
 
