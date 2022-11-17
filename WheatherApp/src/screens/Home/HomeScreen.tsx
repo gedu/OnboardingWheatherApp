@@ -2,15 +2,25 @@ import React from 'react';
 
 import { FlatList, ListRenderItem } from 'react-native';
 
+import { HorizontalDivider } from '@components/Divider/HorizontalDivider';
+import { ErrorIndicator } from '@components/ErrorIndicator/ErrorIndicator';
+import { LoadingIndicator } from '@components/LoadingIndicator';
+import { LocationWeaterItemInformation } from '@components/LocationWeatherInformation/LocationWeatherInformation';
+import { useLocationWeather } from '@services/remote-data-source/useLocationWeather';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { HorizontalDivider } from '../../components/Divider/HorizontalDivider';
-import { LocationWeaterItemInformation } from '../../components/LocationWeatherInformation/LocationWeatherInformation';
-import { LocationItem } from '../../utils/types';
-
-import { mockItems } from './mockWheatherData';
+import { LocationItem } from 'src/utils/types';
 
 export const HomeScreen = () => {
+  const { data, isLoading, error } = useLocationWeather();
+
+  if (isLoading) {
+    return <LoadingIndicator />;
+  }
+
+  if (error) {
+    return <ErrorIndicator />;
+  }
+
   const renderItem: ListRenderItem<LocationItem> = ({
     item: { name, temp, weather },
   }) => (
@@ -26,7 +36,7 @@ export const HomeScreen = () => {
   return (
     <SafeAreaView>
       <FlatList
-        data={mockItems}
+        data={data}
         renderItem={renderItem}
         ItemSeparatorComponent={HorizontalDivider}
       />

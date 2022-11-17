@@ -5,7 +5,7 @@ import {
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 
-import { HomeScreen } from '../screens/Home/HomeScreen';
+import { HomeScreen } from 'src/screens/Home/HomeScreen';
 
 type MainParamList = {
   DetailScreen: undefined;

@@ -5,6 +5,18 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    "baseUrl": ".",
+    "paths": {
+      // This needs to be mirrored in babel.config.js
+      "src/*": ["src/*"],
+      "@assets": ["assets"],
+      "@assets*": ["assets*"],
+      "@services": ["src/services"],
+      "@services*": ["src/services*"],
+      "@components": ["src/components"],
+      "@components*": ["src/components*"],
+    }
+
   }
 }

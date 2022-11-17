@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyleSheet, View, Dimensions } from 'react-native';
 
-import { colors } from '../../Theme';
+import { colors } from 'src/Theme';
 
 const { width } = Dimensions.get('window');
 
