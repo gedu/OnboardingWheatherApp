@@ -1,0 +1,15 @@
+export const mockNavigation = {
+  navigate: jest.fn(),
+  setOptions: jest.fn(),
+  dispatch: jest.fn(),
+  goBack: jest.fn(),
+  setParams: jest.fn(),
+  addListener: jest.fn(),
+  isFocused: jest.fn(),
+  reset: jest.fn(),
+  canGoBack: jest.fn(),
+  getId: jest.fn(),
+  getParent: jest.fn(),
+  getState: jest.fn(),
+  removeListener: jest.fn(),
+};

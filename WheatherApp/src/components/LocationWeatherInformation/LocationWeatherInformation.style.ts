@@ -5,7 +5,6 @@ import { colors } from '../../Theme';
 export const styles = StyleSheet.create({
   locationItemRoot: {
     flexDirection: 'row',
-    flex: 1,
     alignItems: 'center',
     paddingVertical: 8,
   },

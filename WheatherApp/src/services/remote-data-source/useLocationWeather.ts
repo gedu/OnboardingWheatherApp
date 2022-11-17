@@ -3,6 +3,7 @@ import { useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { LocationItem, WeatherItem } from 'src/utils/types';
 
+import storage from '../local-data-source/storage';
 import { cityIdsQuery } from '../serviceConfig';
 
 import { requestSecureGet } from './networking/axiosClient';
@@ -23,7 +24,6 @@ type LocationResponse = Array<LocationItem>;
 const parseLocation = (data: LocationApiResponse): LocationResponse => {
   const parsedLocation = data.list.map(location => ({
     ...location,
-    temp: location.main.temp,
     weather: location.weather[0],
   }));
 
@@ -36,9 +36,12 @@ export const useLocationWeather = () =>
     () =>
       requestSecureGet<LocationApiResponse>(`group?id=${cityIdsQuery}&cnt=1`),
     {
-      select: useCallback(
-        (data: LocationApiResponse) => parseLocation(data),
-        [],
-      ),
+      select: useCallback((data: LocationApiResponse) => {
+        const parsedLocations = parseLocation(data);
+
+        parsedLocations.forEach(locationToSave => storage.save(locationToSave));
+
+        return parsedLocations;
+      }, []),
     },
   );

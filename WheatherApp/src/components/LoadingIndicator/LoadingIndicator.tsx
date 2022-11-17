@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 
 export const LoadingIndicator = () => {
   return (
-    <View style={styles.rootLoading}>
+    <View style={styles.rootLoading} testID="loading-indicator">
       <ActivityIndicator size="large" />
     </View>
   );

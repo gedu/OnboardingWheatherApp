@@ -1,3 +1,9 @@
+type TemperatureInfo = {
+  humidity: number;
+  pressure: number;
+  temp: number;
+};
+
 export type WeatherItem = {
   description: string;
   icon: string;
@@ -6,9 +12,11 @@ export type WeatherItem = {
 };
 
 export type LocationItem = {
+  clouds: { all: number };
   cod: number;
   id: number;
+  main: TemperatureInfo;
   name: string;
-  temp: number;
   weather: WeatherItem;
+  wind: { speed: number };
 };
