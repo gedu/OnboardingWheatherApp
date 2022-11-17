@@ -4,6 +4,7 @@ import {
   createNativeStackNavigator,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
+
 import { HomeScreen } from 'src/screens/Home/HomeScreen';
 
 type MainParamList = {
