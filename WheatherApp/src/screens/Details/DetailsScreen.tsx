@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Text, View } from 'react-native';
 
@@ -7,6 +7,7 @@ import { Spacer } from '@components/Spacer';
 import { RouteProp } from '@react-navigation/native';
 import { HorizontalDivider } from 'src/components/Divider/HorizontalDivider';
 import { MainParamList } from 'src/navigation/MainNavigation';
+import { fireNotification } from 'src/services/DeviceNotification';
 
 import { styles } from './DetailsScreen.style';
 import { useStorage } from './useStorage';
@@ -32,6 +33,10 @@ const RowLocationDetail = ({ title, info }: RowLocationDetailProps) => {
 
 export const DetailsScreen = ({ route }: DetailsScreenProps) => {
   const [locationData] = useStorage(route.params.id);
+
+  useEffect(() => {
+    fireNotification('Test', 'yay message');
+  }, []);
 
   return (
     <>
