@@ -7,10 +7,10 @@ jobs:
     working_directory: ~/OnboardingWheatherApp/WheatherApp/
     steps:
       - checkout
-      - restore_cache: # restore the cache, in this case it will be our node_modules
-          keys:
-            - dependencies-{{ checksum "yarn.lock" }}
-            - dependencies-
+      # - restore_cache: # restore the cache, in this case it will be our node_modules
+      #     keys:
+      #       - dependencies-{{ checksum "yarn.lock" }}
+      #       - dependencies-
       - run: yarn install --frozen-lockfile # install dependencies
       - save_cache: # save our node_modules
           key: dependencies-{{ checksum "yarn.lock" }}
