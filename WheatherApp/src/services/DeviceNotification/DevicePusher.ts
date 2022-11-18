@@ -1,10 +1,10 @@
 import { NativeModules } from 'react-native';
 
-const { DevicePusher } = NativeModules;
-
+const { DevicePusherModule } = NativeModules;
+console.log(DevicePusherModule);
 type DevicePusherContract = {
   fireNotification(title: string, message: string, id?: number): void;
   requestPermission(): Promise<boolean>;
 };
 
-export default DevicePusher as DevicePusherContract;
+export default DevicePusherModule as DevicePusherContract;

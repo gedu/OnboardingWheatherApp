@@ -8,7 +8,6 @@ import { LoadingIndicator } from '@components/LoadingIndicator';
 import { LocationWeaterItemInformation } from '@components/LocationWeatherInformation/LocationWeatherInformation';
 import { NavigationProp } from '@react-navigation/native';
 import { useLocationWeather } from '@services/remote-data-source/useLocationWeather';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { MainParamList } from 'src/navigation/MainNavigation';
 import { LocationItem } from 'src/utils/types';
 
@@ -47,13 +46,11 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
   };
 
   return (
-    <SafeAreaView>
-      <FlatList
-        testID="location-list"
-        data={data}
-        renderItem={renderItem}
-        ItemSeparatorComponent={HorizontalDivider}
-      />
-    </SafeAreaView>
+    <FlatList
+      testID="location-list"
+      data={data}
+      renderItem={renderItem}
+      ItemSeparatorComponent={HorizontalDivider}
+    />
   );
 };

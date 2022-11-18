@@ -24,7 +24,7 @@ class DevicePusherModule(private val reactContext: ReactApplicationContext) : Re
         const val CHANNEL_ID = "default"
     }
 
-    override fun getName() = "DevicePusher"
+    override fun getName() = "DevicePusherModule"
 
     @ReactMethod
     fun requestPermission(promise: Promise) {
