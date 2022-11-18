@@ -7,7 +7,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10 # here, we say which node version we want to use
+      - image: circleci/node:10.16.3 # here, we say which node version we want to use
     working_directory: ~/repo
     steps:
       - checkout 
