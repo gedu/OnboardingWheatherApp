@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.16.0 # here, we say which node version we want to use
-    working_directory: ~/OnboardingWheatherApp/WheatherApp
+    working_directory: ~/OnboardingWheatherApp/WheatherApp/
     steps:
       - checkout
       - restore_cache: # restore the cache, in this case it will be our node_modules
