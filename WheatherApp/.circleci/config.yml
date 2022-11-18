@@ -1,0 +1,21 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10 # here, we say which node version we want to use
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache: # restore the cache, in this case it will be our node_modules
+          keys:
+            - dependencies-{{ checksum "yarn.lock" }}
+            - dependencies-
+      - run: yarn install --frozen-lockfile # install dependencies
+      - save_cache: # save our node_modules
+          key: dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run: yarn lint # run lint script (probably some ESLlint or TSLint)
+      - run: yarn test # run test script (probably Jest)
+      - run: yarn typecheck # type check files (probably Flow or TypeScript)
