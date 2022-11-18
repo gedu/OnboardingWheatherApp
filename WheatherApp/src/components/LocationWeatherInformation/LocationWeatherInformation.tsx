@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Image, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
 
 import { icons } from '@assets/icons';
 import { Spacer } from '@components/Spacer';
@@ -11,6 +11,7 @@ import { styles } from './LocationWeatherInformation.style';
 type WheaterItemInformationProps = {
   iconUrl: string;
   name: string;
+  onPress?: () => void;
   temperature: number;
   weatherType: string;
   withChevron?: boolean;
@@ -33,10 +34,11 @@ export const LocationWeaterItemInformation = ({
   name,
   weatherType,
   temperature,
+  onPress = () => {},
   withChevron = false,
 }: WheaterItemInformationProps) => {
   return (
-    <View style={styles.locationItemRoot}>
+    <Pressable style={styles.locationItemRoot} onPress={onPress}>
       <Image
         style={styles.locationIcon}
         source={{ uri: buildIconUrl(iconUrl) }}
@@ -50,6 +52,6 @@ export const LocationWeaterItemInformation = ({
       <Spacer horizontal="8" />
       {withChevron ? <Image source={icons.rightChevron} /> : null}
       <Spacer horizontal="16" />
-    </View>
+    </Pressable>
   );
 };
